@@ -1,0 +1,2085 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Neerja Joshi - Personal Portfolio</title>
+  
+  <!-- Google Fonts -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600&display=swap" rel="stylesheet">
+  
+  <!-- Ionicons -->
+  <script type="module" src="https://unpkg.com/ionicons@5.5.2/dist/ionicons/ionicons.esm.js"></script>
+  <script nomodule src="https://unpkg.com/ionicons@5.5.2/dist/ionicons/ionicons.js"></script>
+  
+  <style>
+    /* CSS Variables - CHANGE THEME COLORS HERE */
+    :root {
+      /* THEME: Modern Blue (Change these values for different themes) */
+      --primary-color: hsl(220, 100%, 60%);        /* Main accent color */
+      --primary-light: hsl(220, 100%, 70%);        /* Lighter accent */
+      --primary-dark: hsl(220, 100%, 50%);         /* Darker accent */
+      
+      --bg-main: hsl(220, 15%, 8%);                /* Main background */
+      --bg-card: hsl(220, 15%, 12%);               /* Card backgrounds */
+      --bg-elevated: hsl(220, 15%, 18%);           /* Elevated elements */
+      
+      --text-primary: hsl(0, 0%, 98%);             /* Main text */
+      --text-secondary: hsl(0, 0%, 84%);           /* Secondary text */
+      --text-muted: hsla(0, 0%, 84%, 0.7);        /* Muted text */
+      
+      --border-color: hsl(220, 15%, 25%);          /* Borders */
+      
+      /* Auto-generated gradients based on theme colors */
+      --bg-gradient-onyx: linear-gradient(to bottom right, 
+        var(--bg-elevated) 3%, 
+        var(--bg-card) 97%);
+      --bg-gradient-jet: linear-gradient(to bottom right, 
+        hsla(220, 15%, 18%, 0.251) 0%, 
+        hsla(220, 15%, 11%, 0) 100%), 
+        var(--bg-card);
+      --bg-gradient-yellow-1: linear-gradient(to bottom right, 
+        var(--primary-color) 0%, 
+        hsla(220, 100%, 60%, 0) 50%);
+      --bg-gradient-yellow-2: linear-gradient(135deg, 
+        hsla(220, 100%, 60%, 0.251) 0%, 
+        hsla(220, 100%, 50%, 0) 59.86%), 
+        var(--bg-card);
+      --border-gradient-onyx: linear-gradient(to bottom right, 
+        var(--border-color) 0%, 
+        hsla(220, 15%, 25%, 0) 50%);
+      --text-gradient-yellow: linear-gradient(to right, 
+        var(--primary-light), 
+        var(--primary-dark));
+      
+      /* Legacy color names (mapped to new theme) */
+      --jet: var(--border-color);
+      --onyx: var(--bg-elevated);
+      --eerie-black-1: var(--bg-card);
+      --eerie-black-2: var(--bg-card);
+      --smoky-black: var(--bg-main);
+      --white-1: var(--text-primary);
+      --white-2: var(--text-primary);
+      --orange-yellow-crayola: var(--primary-color);
+      --vegas-gold: var(--primary-light);
+      --light-gray: var(--text-secondary);
+      --light-gray-70: var(--text-muted);
+      --bittersweet-shimmer: hsl(0, 43%, 51%);
+      
+      /* Typography */
+      --ff-poppins: 'Poppins', sans-serif;
+      --fs-1: 24px;
+      --fs-2: 18px;
+      --fs-3: 17px;
+      --fs-4: 16px;
+      --fs-5: 15px;
+      --fs-6: 14px;
+      --fs-7: 13px;
+      --fs-8: 11px;
+      --fw-300: 300;
+      --fw-400: 400;
+      --fw-500: 500;
+      --fw-600: 600;
+      
+      /* Shadows */
+      --shadow-1: -4px 8px 24px hsla(0, 0%, 0%, 0.25);
+      --shadow-2: 0 16px 30px hsla(0, 0%, 0%, 0.25);
+      --shadow-3: 0 16px 40px hsla(0, 0%, 0%, 0.25);
+      --shadow-4: 0 25px 50px hsla(0, 0%, 0%, 0.15);
+      --shadow-5: 0 24px 80px hsla(0, 0%, 0%, 0.25);
+      
+      /* Transitions */
+      --transition-1: 0.25s ease;
+      --transition-2: 0.5s ease-in-out;
+    }
+
+    /* Reset */
+    *, *::before, *::after {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    html { font-family: var(--ff-poppins); }
+
+    /* Additional light theme specific overrides */
+    body {
+      background: var(--bg-main);
+      color: var(--text-primary);
+      font-size: var(--fs-6);
+      font-weight: var(--fw-400);
+      line-height: 1.6;
+    }
+
+    /* Navbar with lavender background */
+    .navbar {
+      position: fixed;
+      bottom: 0;
+      left: 0;
+      width: 100%;
+      background: linear-gradient(135deg, var(--primary-color) 0%, var(--primary-light) 100%);
+      backdrop-filter: blur(10px);
+      border: 1px solid var(--primary-light);
+      border-radius: 12px 12px 0 0;
+      box-shadow: 0 -4px 20px rgba(0, 0, 0, 0.1);
+      z-index: 5;
+    }
+
+    .navbar-link {
+      color: rgba(255, 255, 255, 0.8);
+      font-size: var(--fs-8);
+      padding: 20px 7px;
+      transition: color var(--transition-1);
+      font-weight: var(--fw-500);
+    }
+
+    .navbar-link:hover,
+    .navbar-link:focus {
+      color: rgba(255, 255, 255, 1);
+    }
+
+    .navbar-link.active {
+      color: white;
+      text-shadow: 0 0 8px rgba(255, 255, 255, 0.5);
+    }
+
+    /* Sidebar with light lavender background */
+    .sidebar {
+      margin-bottom: 15px;
+      max-height: 112px;
+      overflow: hidden;
+      transition: var(--transition-2);
+      background: var(--bg-card);
+      border: 2px solid var(--border-color);
+      border-radius: 20px;
+      padding: 15px;
+      box-shadow: 0 4px 20px rgba(0, 0, 0, 0.1);
+    }
+
+    /* Form button with lavender styling */
+    .form-btn {
+      position: relative;
+      width: 100%;
+      background: linear-gradient(135deg, var(--primary-color) 0%, var(--primary-light) 100%);
+      color: white;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      gap: 10px;
+      padding: 13px 20px;
+      border-radius: 14px;
+      font-size: var(--fs-6);
+      text-transform: capitalize;
+      box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2);
+      z-index: 1;
+      transition: var(--transition-1);
+      border: none;
+    }
+
+    .form-btn:hover {
+      background: linear-gradient(135deg, var(--primary-dark) 0%, var(--primary-color) 100%);
+      transform: translateY(-2px);
+      box-shadow: 0 6px 20px rgba(0, 0, 0, 0.3);
+    }
+
+    /* Light theme input styling */
+    .form-input {
+      color: var(--text-primary);
+      background: var(--bg-card);
+      font-size: var(--fs-6);
+      font-weight: var(--fw-400);
+      padding: 13px 20px;
+      border: 2px solid var(--border-color);
+      border-radius: 14px;
+      outline: none;
+      transition: border-color var(--transition-1);
+    }
+
+    .form-input::placeholder {
+      color: var(--text-muted);
+      font-weight: var(--fw-400);
+    }
+
+    .form-input:focus {
+      border-color: var(--primary-color);
+      box-shadow: 0 0 0 3px rgba(123, 104, 238, 0.1);
+    }
+
+    /* Progress bars with lavender color */
+    .skill-progress-fill {
+      background: linear-gradient(to right, var(--primary-color), var(--primary-light));
+      height: 100%;
+      border-radius: inherit;
+    }
+
+    /* Article title underline */
+    .article-title::after {
+      content: "";
+      position: absolute;
+      bottom: 0;
+      left: 0;
+      width: 30px;
+      height: 3px;
+      background: linear-gradient(to right, var(--primary-color), var(--primary-light));
+      border-radius: 3px;
+    }
+
+    /* Timeline dots */
+    .timeline-item::after {
+      content: "";
+      position: absolute;
+      top: 5px;
+      left: -33px;
+      height: 6px;
+      width: 6px;
+      background: var(--primary-color);
+      border-radius: 50%;
+      box-shadow: 0 0 0 4px var(--border-color);
+    }
+
+    a, img, time, span, input, button, textarea, ion-icon { display: block; }
+
+    a {
+      color: inherit;
+      text-decoration: none;
+    }
+
+    li { list-style: none; }
+
+    input, button, textarea {
+      background: none;
+      border: none;
+      font: inherit;
+    }
+
+    input, textarea { width: 100%; }
+
+    button {
+      cursor: pointer;
+      color: inherit;
+      text-align: left;
+    }
+
+    /* Main Layout */
+    main {
+      margin: 15px 12px;
+      margin-bottom: 75px;
+      min-width: 259px;
+    }
+
+    /* Sidebar */
+    .sidebar {
+      margin-bottom: 15px;
+      max-height: 112px;
+      overflow: hidden;
+      transition: var(--transition-2);
+      background: var(--eerie-black-2);
+      border: 1px solid var(--jet);
+      border-radius: 20px;
+      padding: 15px;
+      box-shadow: var(--shadow-1);
+    }
+
+    .sidebar.active { max-height: 405px; }
+
+    .sidebar-info {
+      position: relative;
+      display: flex;
+      justify-content: flex-start;
+      align-items: center;
+      gap: 15px;
+    }
+
+    .avatar-box {
+      background: var(--bg-gradient-onyx);
+      border-radius: 20px;
+    }
+
+    .avatar-box img {
+      width: 80px;
+      border-radius: 20px;
+    }
+
+    .info-content .name {
+      color: var(--white-2);
+      font-size: var(--fs-3);
+      font-weight: var(--fw-500);
+      letter-spacing: -0.25px;
+      margin-bottom: 10px;
+    }
+
+    .info-content .title {
+      color: var(--white-1);
+      background: var(--onyx);
+      font-size: var(--fs-8);
+      font-weight: var(--fw-300);
+      width: max-content;
+      padding: 3px 12px;
+      border-radius: 8px;
+    }
+
+    .info_more-btn {
+      position: absolute;
+      top: -15px;
+      right: -15px;
+      border-radius: 0 15px;
+      font-size: 13px;
+      color: var(--orange-yellow-crayola);
+      background: var(--border-gradient-onyx);
+      padding: 10px;
+      box-shadow: var(--shadow-2);
+      transition: var(--transition-1);
+      z-index: 1;
+    }
+
+    .info_more-btn::before {
+      content: "";
+      position: absolute;
+      inset: 1px;
+      border-radius: inherit;
+      background: var(--bg-gradient-jet);
+      transition: var(--transition-1);
+      z-index: -1;
+    }
+
+    .info_more-btn span { display: none; }
+
+    .sidebar-info_more {
+      opacity: 0;
+      visibility: hidden;
+      transition: var(--transition-2);
+    }
+
+    .sidebar.active .sidebar-info_more {
+      opacity: 1;
+      visibility: visible;
+    }
+
+    .separator {
+      width: 100%;
+      height: 1px;
+      background: var(--jet);
+      margin: 16px 0;
+    }
+
+    .contacts-list {
+      display: grid;
+      grid-template-columns: 1fr;
+      gap: 16px;
+    }
+
+    .contact-item {
+      min-width: 100%;
+      display: flex;
+      align-items: center;
+      gap: 16px;
+    }
+
+    .icon-box {
+      position: relative;
+      background: var(--border-gradient-onyx);
+      width: 30px;
+      height: 30px;
+      border-radius: 8px;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      font-size: 16px;
+      color: var(--orange-yellow-crayola);
+      box-shadow: var(--shadow-1);
+      z-index: 1;
+    }
+
+    .icon-box::before {
+      content: "";
+      position: absolute;
+      inset: 1px;
+      background: var(--eerie-black-1);
+      border-radius: inherit;
+      z-index: -1;
+    }
+
+    .contact-info {
+      max-width: calc(100% - 46px);
+      width: calc(100% - 46px);
+    }
+
+    .contact-title {
+      color: var(--light-gray-70);
+      font-size: var(--fs-8);
+      text-transform: uppercase;
+      margin-bottom: 2px;
+    }
+
+    .contact-info :is(.contact-link, time, address) {
+      color: var(--white-2);
+      font-size: var(--fs-7);
+    }
+
+    .social-list {
+      display: flex;
+      justify-content: flex-start;
+      align-items: center;
+      gap: 15px;
+      padding-bottom: 4px;
+      padding-left: 7px;
+    }
+
+    .social-item .social-link {
+      color: var(--light-gray-70);
+      font-size: 18px;
+    }
+
+    .social-item .social-link:hover {
+      color: var(--light-gray);
+    }
+
+    /* Main Content */
+    .main-content {
+      position: relative;
+      width: 100%;
+      margin: auto;
+    }
+
+    /* Navbar */
+    .navbar {
+      position: fixed;
+      bottom: 0;
+      left: 0;
+      width: 100%;
+      background: hsla(240, 1%, 17%, 0.75);
+      backdrop-filter: blur(10px);
+      border: 1px solid var(--jet);
+      border-radius: 12px 12px 0 0;
+      box-shadow: var(--shadow-2);
+      z-index: 5;
+    }
+
+    .navbar-list {
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: center;
+      align-items: center;
+      padding: 0 10px;
+    }
+
+    .navbar-link {
+      color: var(--light-gray);
+      font-size: var(--fs-8);
+      padding: 20px 7px;
+      transition: color var(--transition-1);
+    }
+
+    .navbar-link:hover,
+    .navbar-link:focus {
+      color: var(--light-gray-70);
+    }
+
+    .navbar-link.active {
+      color: var(--orange-yellow-crayola);
+    }
+
+    /* Articles */
+    article {
+      background: var(--eerie-black-2);
+      border: 1px solid var(--jet);
+      border-radius: 20px;
+      padding: 15px;
+      box-shadow: var(--shadow-1);
+      z-index: 1;
+      display: none;
+    }
+
+    article.active {
+      display: block;
+      animation: fade 0.5s ease backwards;
+    }
+
+    @keyframes fade {
+      0% { opacity: 0; }
+      100% { opacity: 1; }
+    }
+
+    .h2, .h3, .h4, .h5 {
+      color: var(--white-2);
+      text-transform: capitalize;
+    }
+
+    .h2 { font-size: var(--fs-1); }
+    .h3 { font-size: var(--fs-2); }
+    .h4 { font-size: var(--fs-4); }
+    .h5 { font-size: var(--fs-7); font-weight: var(--fw-500); }
+
+    .article-title {
+      position: relative;
+      padding-bottom: 7px;
+      margin-bottom: 15px;
+    }
+
+    .article-title::after {
+      content: "";
+      position: absolute;
+      bottom: 0;
+      left: 0;
+      width: 30px;
+      height: 3px;
+      background: var(--text-gradient-yellow);
+      border-radius: 3px;
+    }
+
+    /* About Section */
+    .about-text {
+      color: var(--light-gray);
+      font-size: var(--fs-6);
+      font-weight: var(--fw-300);
+      line-height: 1.6;
+      margin-bottom: 15px;
+    }
+
+    /* Service Section */
+    .service {
+      margin-bottom: 35px;
+    }
+
+    .service-title {
+      margin-bottom: 20px;
+    }
+
+    .service-list {
+      display: grid;
+      grid-template-columns: 1fr;
+      gap: 20px;
+    }
+
+    .service-item {
+      position: relative;
+      background: var(--border-gradient-onyx);
+      padding: 20px;
+      border-radius: 14px;
+      box-shadow: var(--shadow-2);
+      z-index: 1;
+    }
+
+    .service-item::before {
+      content: "";
+      position: absolute;
+      inset: 1px;
+      background: var(--bg-gradient-jet);
+      border-radius: inherit;
+      z-index: -1;
+    }
+
+    .service-icon-box {
+      margin-bottom: 10px;
+    }
+
+    .service-icon-box img {
+      margin: auto;
+      width: 40px;
+    }
+
+    .service-content-box {
+      text-align: center;
+    }
+
+    .service-item-title {
+      margin-bottom: 7px;
+    }
+
+    .service-item-text {
+      color: var(--light-gray);
+      font-size: var(--fs-6);
+      font-weight: var(--fw-300);
+      line-height: 1.6;
+    }
+
+    /* Testimonials */
+    .testimonials {
+      margin-bottom: 30px;
+    }
+
+    .testimonials-title {
+      margin-bottom: 20px;
+    }
+
+    .testimonials-list {
+      display: flex;
+      justify-content: flex-start;
+      align-items: flex-start;
+      gap: 15px;
+      margin: 0 -15px;
+      padding: 25px 15px;
+      padding-bottom: 35px;
+      overflow-x: auto;
+      scroll-behavior: smooth;
+      overscroll-behavior-inline: contain;
+      scroll-snap-type: inline mandatory;
+    }
+
+    .testimonials-item {
+      min-width: 100%;
+      scroll-snap-align: center;
+    }
+
+    .content-card {
+      position: relative;
+      background: var(--border-gradient-onyx);
+      padding: 15px;
+      padding-top: 45px;
+      border-radius: 14px;
+      box-shadow: var(--shadow-2);
+      cursor: pointer;
+      z-index: 1;
+    }
+
+    .content-card::before {
+      content: "";
+      position: absolute;
+      inset: 1px;
+      background: var(--bg-gradient-jet);
+      border-radius: inherit;
+      z-index: -1;
+    }
+
+    .testimonials-avatar-box {
+      position: absolute;
+      top: 0;
+      left: 0;
+      transform: translate(15px, -25px);
+      background: var(--bg-gradient-onyx);
+      border-radius: 14px;
+      box-shadow: var(--shadow-1);
+    }
+
+    .testimonials-avatar-box img {
+      width: 60px;
+      border-radius: 14px;
+    }
+
+    .testimonials-item-title {
+      margin-bottom: 7px;
+    }
+
+    .testimonials-text {
+      color: var(--light-gray);
+      font-size: var(--fs-6);
+      font-weight: var(--fw-300);
+      line-height: 1.6;
+      display: -webkit-box;
+      line-clamp: 4;
+      -webkit-line-clamp: 4;
+      -webkit-box-orient: vertical;
+      overflow: hidden;
+    }
+
+    /* Clients */
+    .clients {
+      margin-bottom: 15px;
+    }
+
+    .clients-list {
+      display: flex;
+      justify-content: flex-start;
+      align-items: flex-start;
+      gap: 15px;
+      margin: 0 -15px;
+      padding: 25px;
+      overflow-x: auto;
+      scroll-behavior: smooth;
+      overscroll-behavior-inline: contain;
+      scroll-snap-type: inline mandatory;
+      scroll-padding-inline: 25px;
+    }
+
+    .clients-item {
+      min-width: 50%;
+      scroll-snap-align: start;
+    }
+
+    .clients-item img {
+      width: 100%;
+      filter: grayscale(1);
+      transition: var(--transition-1);
+      background: white;
+      padding: 10px;
+      border-radius: 8px;
+    }
+
+    .clients-item img:hover {
+      filter: grayscale(0);
+    }
+
+    /* Resume Section */
+    .timeline {
+      margin-bottom: 30px;
+    }
+
+    .timeline .title-wrapper {
+      display: flex;
+      align-items: center;
+      gap: 15px;
+      margin-bottom: 25px;
+    }
+
+    .timeline-list {
+      font-size: var(--fs-6);
+      margin-left: 45px;
+    }
+
+    .timeline-item {
+      position: relative;
+    }
+
+    .timeline-item:not(:last-child) {
+      margin-bottom: 20px;
+    }
+
+    .timeline-item-title {
+      font-size: var(--fs-6);
+      line-height: 1.3;
+      margin-bottom: 7px;
+    }
+
+    .timeline-list span {
+      color: var(--vegas-gold);
+      font-weight: var(--fw-400);
+      line-height: 1.6;
+    }
+
+    .timeline-item:not(:last-child)::before {
+      content: "";
+      position: absolute;
+      top: -25px;
+      left: -30px;
+      width: 1px;
+      height: calc(100% + 50px);
+      background: var(--jet);
+    }
+
+    .timeline-item::after {
+      content: "";
+      position: absolute;
+      top: 5px;
+      left: -33px;
+      height: 6px;
+      width: 6px;
+      background: var(--text-gradient-yellow);
+      border-radius: 50%;
+      box-shadow: 0 0 0 4px var(--jet);
+    }
+
+    .timeline-text {
+      color: var(--light-gray);
+      font-weight: var(--fw-300);
+      line-height: 1.6;
+    }
+
+    /* Skills */
+    .skills-title {
+      margin-bottom: 20px;
+    }
+
+    .skills-list {
+      padding: 20px;
+    }
+
+    .skills-item:not(:last-child) {
+      margin-bottom: 15px;
+    }
+
+    .skill .title-wrapper {
+      display: flex;
+      align-items: center;
+      gap: 5px;
+      margin-bottom: 8px;
+    }
+
+    .skill .title-wrapper data {
+      color: var(--light-gray);
+      font-size: var(--fs-7);
+      font-weight: var(--fw-300);
+    }
+
+    .skill-progress-bg {
+      background: var(--jet);
+      width: 100%;
+      height: 8px;
+      border-radius: 10px;
+    }
+
+    .skill-progress-fill {
+      background: var(--text-gradient-yellow);
+      height: 100%;
+      border-radius: inherit;
+    }
+
+    /* Portfolio */
+    .filter-list {
+      display: none;
+    }
+
+    .filter-select-box {
+      position: relative;
+      margin-bottom: 25px;
+    }
+
+    .filter-select {
+      background: var(--eerie-black-2);
+      color: var(--light-gray);
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      width: 100%;
+      padding: 12px 16px;
+      border: 1px solid var(--jet);
+      border-radius: 14px;
+      font-size: var(--fs-6);
+      font-weight: var(--fw-300);
+    }
+
+    .project-list {
+      display: grid;
+      grid-template-columns: 1fr;
+      gap: 30px;
+      margin-bottom: 10px;
+    }
+
+    .project-item {
+      display: none;
+    }
+
+    .project-item.active {
+      display: block;
+      animation: scaleUp 0.25s ease forwards;
+    }
+
+    @keyframes scaleUp {
+      0% { transform: scale(0.5); }
+      100% { transform: scale(1); }
+    }
+
+    .project-item > a {
+      width: 100%;
+    }
+
+    .project-img {
+      position: relative;
+      width: 100%;
+      height: 200px;
+      border-radius: 16px;
+      overflow: hidden;
+      margin-bottom: 15px;
+      background: var(--jet);
+    }
+
+    .project-img img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      transition: var(--transition-1);
+    }
+
+    .project-title,
+    .project-category {
+      margin-left: 10px;
+    }
+
+    .project-title {
+      color: var(--white-2);
+      font-size: var(--fs-5);
+      font-weight: var(--fw-400);
+      text-transform: capitalize;
+      line-height: 1.3;
+    }
+
+    .project-category {
+      color: var(--light-gray-70);
+      font-size: var(--fs-6);
+      font-weight: var(--fw-300);
+    }
+
+    /* Blog */
+    .blog-posts-list {
+      display: grid;
+      grid-template-columns: 1fr;
+      gap: 20px;
+    }
+
+    .blog-post-item > a {
+      position: relative;
+      background: var(--border-gradient-onyx);
+      height: 100%;
+      box-shadow: var(--shadow-4);
+      border-radius: 16px;
+      z-index: 1;
+    }
+
+    .blog-post-item > a::before {
+      content: "";
+      position: absolute;
+      inset: 1px;
+      border-radius: inherit;
+      background: var(--eerie-black-1);
+      z-index: -1;
+    }
+
+    .blog-banner-box {
+      width: 100%;
+      height: 200px;
+      border-radius: 12px;
+      overflow: hidden;
+      background: var(--jet);
+    }
+
+    .blog-banner-box img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      transition: var(--transition-1);
+    }
+
+    .blog-content {
+      padding: 15px;
+    }
+
+    .blog-meta {
+      display: flex;
+      justify-content: flex-start;
+      align-items: center;
+      gap: 7px;
+      margin-bottom: 10px;
+    }
+
+    .blog-meta :is(.blog-category, time) {
+      color: var(--light-gray-70);
+      font-size: var(--fs-6);
+      font-weight: var(--fw-300);
+    }
+
+    .blog-meta .dot {
+      background: var(--light-gray-70);
+      width: 4px;
+      height: 4px;
+      border-radius: 4px;
+    }
+
+    .blog-item-title {
+      margin-bottom: 10px;
+      line-height: 1.3;
+      transition: var(--transition-1);
+    }
+
+    .blog-text {
+      color: var(--light-gray);
+      font-size: var(--fs-6);
+      font-weight: var(--fw-300);
+      line-height: 1.6;
+    }
+
+    /* Contact */
+    .mapbox {
+      position: relative;
+      height: 250px;
+      width: 100%;
+      border-radius: 16px;
+      margin-bottom: 30px;
+      border: 1px solid var(--jet);
+      overflow: hidden;
+    }
+
+    .mapbox figure {
+      height: 100%;
+    }
+
+    .mapbox iframe {
+      width: 100%;
+      height: 100%;
+      border: none;
+      filter: grayscale(1) invert(1);
+    }
+
+    .contact-form {
+      margin-bottom: 10px;
+    }
+
+    .form-title {
+      margin-bottom: 20px;
+    }
+
+    .input-wrapper {
+      display: grid;
+      grid-template-columns: 1fr;
+      gap: 25px;
+      margin-bottom: 25px;
+    }
+
+    .form-input {
+      color: var(--white-2);
+      font-size: var(--fs-6);
+      font-weight: var(--fw-400);
+      padding: 13px 20px;
+      border: 1px solid var(--jet);
+      border-radius: 14px;
+      outline: none;
+    }
+
+    .form-input::placeholder {
+      font-weight: var(--fw-500);
+    }
+
+    .form-input:focus {
+      border-color: var(--orange-yellow-crayola);
+    }
+
+    textarea.form-input {
+      min-height: 100px;
+      height: 120px;
+      max-height: 200px;
+      resize: vertical;
+      margin-bottom: 25px;
+    }
+
+    .form-btn {
+      position: relative;
+      width: 100%;
+      background: var(--border-gradient-onyx);
+      color: var(--orange-yellow-crayola);
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      gap: 10px;
+      padding: 13px 20px;
+      border-radius: 14px;
+      font-size: var(--fs-6);
+      text-transform: capitalize;
+      box-shadow: var(--shadow-3);
+      z-index: 1;
+      transition: var(--transition-1);
+    }
+
+    .form-btn::before {
+      content: "";
+      position: absolute;
+      inset: 1px;
+      background: var(--bg-gradient-jet);
+      border-radius: inherit;
+      z-index: -1;
+      transition: var(--transition-1);
+    }
+
+    .form-btn ion-icon {
+      font-size: 16px;
+    }
+
+    /* Responsive Design */
+    @media (min-width: 450px) {
+      .clients-item {
+        min-width: calc(33.33% - 10px);
+      }
+    }
+
+    @media (min-width: 580px) {
+      .sidebar, article {
+        width: 520px;
+        margin-inline: auto;
+        padding: 30px;
+      }
+
+      main {
+        margin-top: 60px;
+        margin-bottom: 100px;
+      }
+
+      .sidebar {
+        max-height: 180px;
+        margin-bottom: 30px;
+      }
+
+      .sidebar.active {
+        max-height: 584px;
+      }
+
+      .sidebar-info {
+        gap: 25px;
+      }
+
+      .avatar-box {
+        border-radius: 30px;
+      }
+
+      .avatar-box img {
+        width: 120px;
+      }
+
+      .info-content .name {
+        margin-bottom: 15px;
+      }
+
+      .info_more-btn {
+        top: -30px;
+        right: -30px;
+        padding: 10px 15px;
+      }
+
+      .info_more-btn span {
+        display: block;
+        font-size: var(--fs-8);
+      }
+
+      .info_more-btn ion-icon {
+        display: none;
+      }
+
+      .service-item {
+        display: flex;
+        justify-content: flex-start;
+        align-items: flex-start;
+        gap: 18px;
+        padding: 30px;
+      }
+
+      .service-icon-box {
+        margin-bottom: 0;
+        margin-top: 5px;
+      }
+
+      .service-content-box {
+        text-align: left;
+      }
+
+      .testimonials-list {
+        gap: 30px;
+        margin: 0 -30px;
+        padding: 30px;
+      }
+
+      .content-card {
+        padding: 30px;
+        padding-top: 25px;
+      }
+
+      .testimonials-avatar-box {
+        transform: translate(30px, -30px);
+        border-radius: 20px;
+      }
+
+      .testimonials-avatar-box img {
+        width: 80px;
+      }
+
+      .input-wrapper {
+        gap: 30px;
+        margin-bottom: 30px;
+      }
+
+      .form-input {
+        padding: 15px 20px;
+      }
+    }
+
+    @media (min-width: 768px) {
+      .sidebar, article {
+        width: 700px;
+      }
+
+      .contacts-list {
+        grid-template-columns: 1fr 1fr;
+        gap: 30px 15px;
+      }
+
+      .filter-select-box {
+        display: none;
+      }
+
+      .filter-list {
+        display: flex;
+        justify-content: flex-start;
+        align-items: center;
+        gap: 25px;
+        padding-left: 5px;
+        margin-bottom: 30px;
+      }
+
+      .filter-item button {
+        color: var(--light-gray);
+        font-size: var(--fs-5);
+        transition: var(--transition-1);
+      }
+
+      .filter-item button:hover {
+        color: var(--light-gray-70);
+      }
+
+      .filter-item button.active {
+        color: var(--orange-yellow-crayola);
+      }
+
+      .project-list,
+      .blog-posts-list {
+        grid-template-columns: 1fr 1fr;
+      }
+
+      .input-wrapper {
+        grid-template-columns: 1fr 1fr;
+      }
+
+      .form-btn {
+        width: max-content;
+        margin-left: auto;
+      }
+    }
+
+    @media (min-width: 1024px) {
+      .sidebar, article {
+        width: 950px;
+        box-shadow: var(--shadow-5);
+      }
+
+      main {
+        margin-bottom: 60px;
+      }
+
+      .main-content {
+        position: relative;
+        width: max-content;
+        margin: auto;
+      }
+
+      .navbar {
+        position: absolute;
+        bottom: auto;
+        top: 0;
+        left: auto;
+        right: 0;
+        width: max-content;
+        border-radius: 0 20px;
+        padding: 0 20px;
+        box-shadow: none;
+      }
+
+      .navbar-list {
+        gap: 30px;
+        padding: 0 20px;
+      }
+
+      .navbar-link {
+        font-weight: var(--fw-500);
+      }
+
+      .service-list {
+        grid-template-columns: 1fr 1fr;
+        gap: 20px 25px;
+      }
+
+      .testimonials-item {
+        min-width: calc(50% - 15px);
+      }
+
+      .clients-item {
+        min-width: calc(25% - 38px);
+      }
+
+      .project-list {
+        grid-template-columns: repeat(3, 1fr);
+      }
+    }
+
+    @media (min-width: 1250px) {
+      .sidebar, article {
+        width: auto;
+      }
+
+      article {
+        min-height: 100%;
+      }
+
+      main {
+        max-width: 1200px;
+        margin-inline: auto;
+        display: flex;
+        justify-content: center;
+        align-items: stretch;
+        gap: 25px;
+        margin-top: 60px;
+      }
+
+      .main-content {
+        min-width: 75%;
+        width: 75%;
+        margin: 0;
+      }
+
+      .sidebar {
+        position: sticky;
+        top: 60px;
+        max-height: max-content;
+        height: max-content;
+        margin-bottom: 0;
+        padding-top: 60px;
+        z-index: 1;
+      }
+
+      .sidebar-info {
+        flex-direction: column;
+      }
+
+      .avatar-box img {
+        width: 150px;
+      }
+
+      .info-content .name {
+        white-space: nowrap;
+        text-align: center;
+      }
+
+      .info-content .title {
+        margin: auto;
+      }
+
+      .info_more-btn {
+        display: none;
+      }
+
+      .sidebar-info_more {
+        opacity: 1;
+        visibility: visible;
+      }
+
+      .contacts-list {
+        grid-template-columns: 1fr;
+      }
+
+      .contact-info :is(.contact-link) {
+        white-space: nowrap;
+        overflow: hidden;
+        text-overflow: ellipsis;
+      }
+
+      .social-list {
+        justify-content: center;
+      }
+    }
+  </style>
+</head>
+
+<body>
+  <main>
+    <!-- Sidebar -->
+    <aside class="sidebar" data-sidebar>
+      <div class="sidebar-info">
+        <figure class="avatar-box">
+          <img src="https://images.unsplash.com/photo-1494790108755-2616b612b1e7?w=150&h=150&fit=crop&crop=face" alt="Neerja Joshi" width="80">
+        </figure>
+
+        <div class="info-content">
+          <h1 class="name" title="Neerja Joshi">Neerja Joshi</h1>
+          <p class="title">Web developer</p>
+        </div>
+
+        <button class="info_more-btn" data-sidebar-btn>
+          <span>Show Contacts</span>
+          <ion-icon name="chevron-down"></ion-icon>
+        </button>
+      </div>
+
+      <div class="sidebar-info_more">
+        <div class="separator"></div>
+
+        <ul class="contacts-list">
+          <li class="contact-item">
+            <div class="icon-box">
+              <ion-icon name="mail-outline"></ion-icon>
+            </div>
+            <div class="contact-info">
+              <p class="contact-title">Email</p>
+              <a href="mailto:neerja@example.com" class="contact-link">neerja@example.com</a>
+            </div>
+          </li>
+
+          <li class="contact-item">
+            <div class="icon-box">
+              <ion-icon name="phone-portrait-outline"></ion-icon>
+            </div>
+            <div class="contact-info">
+              <p class="contact-title">Phone</p>
+              <a href="tel:+12133522795" class="contact-link">+1 (213) 352-2795</a>
+            </div>
+          </li>
+
+          <li class="contact-item">
+            <div class="icon-box">
+              <ion-icon name="calendar-outline"></ion-icon>
+            </div>
+            <div class="contact-info">
+              <p class="contact-title">Birthday</p>
+              <time datetime="1999-07-20">July 20, 1999</time>
+            </div>
+          </li>
+
+          <li class="contact-item">
+            <div class="icon-box">
+              <ion-icon name="location-outline"></ion-icon>
+            </div>
+            <div class="contact-info">
+              <p class="contact-title">Location</p>
+              <address>Sacramento, California, USA</address>
+            </div>
+          </li>
+        </ul>
+
+        <div class="separator"></div>
+
+        <ul class="social-list">
+          <li class="social-item">
+            <a href="#" class="social-link">
+              <ion-icon name="logo-facebook"></ion-icon>
+            </a>
+          </li>
+
+          <li class="social-item">
+            <a href="#" class="social-link">
+              <ion-icon name="logo-twitter"></ion-icon>
+            </a>
+          </li>
+
+          <li class="social-item">
+            <a href="#" class="social-link">
+              <ion-icon name="logo-instagram"></ion-icon>
+            </a>
+          </li>
+        </ul>
+      </div>
+    </aside>
+
+    <!-- Main Content -->
+    <div class="main-content">
+      <!-- Navbar -->
+      <nav class="navbar">
+        <ul class="navbar-list">
+          <li class="navbar-item">
+            <button class="navbar-link active" data-nav-link>About</button>
+          </li>
+          <li class="navbar-item">
+            <button class="navbar-link" data-nav-link>Resume</button>
+          </li>
+          <li class="navbar-item">
+            <button class="navbar-link" data-nav-link>Portfolio</button>
+          </li>
+          <li class="navbar-item">
+            <button class="navbar-link" data-nav-link>Blog</button>
+          </li>
+          <li class="navbar-item">
+            <button class="navbar-link" data-nav-link>Contact</button>
+          </li>
+        </ul>
+      </nav>
+
+      <!-- About Section -->
+      <article class="about active" data-page="about">
+        <header>
+          <h2 class="h2 article-title">About me</h2>
+        </header>
+
+        <section class="about-text">
+          <p>
+            Driven and academically inclined student turned young professional, with a strong foundation in research and
+            policy analysis. Graduated from the University of Rajasthan, I've consistently sought opportunities to apply
+            my skills and knowledge in real-world settings.
+          </p>
+          <p>
+            Beyond academics, I've explored various passions, including volunteering to design curriculum for primary and secondary education, fostering a love for learning in young minds.
+          </p>
+          <p>
+            Public speaking at events in Jaipur, honing my communication skills and confidence. Policy research internships at independent think tanks, delving into the intricacies of policy-making.
+          </p>
+          <p>
+            Research internship at NITI Aayog Chair, Jaipur, contributing to data-driven insights for informed decision-making. As I embark on my professional journey, I'm drawn to roles that align with my values of environmental sustainability, climate action, and macroeconomic development. I'm excited to collaborate with like-minded individuals and organizations to create a greener, more equitable future.
+          </p>
+        </section>
+
+        <!-- Services -->
+        <section class="service">
+          <h3 class="h3 service-title">What I'm doing</h3>
+
+          <ul class="service-list">
+            <li class="service-item">
+              <div class="service-icon-box">
+                <img src="https://cdn-icons-png.flaticon.com/128/3135/3135715.png" alt="design icon" width="40">
+              </div>
+              <div class="service-content-box">
+                <h4 class="h4 service-item-title">Case Studies</h4>
+                <p class="service-item-text">
+                  The most modern and high-quality economic analysis delivered at a professional level.
+                </p>
+              </div>
+            </li>
+
+            <li class="service-item">
+              <div class="service-icon-box">
+                <img src="https://cdn-icons-png.flaticon.com/128/1055/1055666.png" alt="Web development icon" width="40">
+              </div>
+              <div class="service-content-box">
+                <h4 class="h4 service-item-title">Economic Analysis</h4>
+                <p class="service-item-text">
+                  High-quality economic research and data-driven insights delivered at a professional level.
+                </p>
+              </div>
+            </li>
+
+            <li class="service-item">
+              <div class="service-icon-box">
+                <img src="https://cdn-icons-png.flaticon.com/128/3135/3135768.png" alt="mobile app icon" width="40">
+              </div>
+              <div class="service-content-box">
+                <h4 class="h4 service-item-title">Policy Research</h4>
+                <p class="service-item-text">
+                  Professional research and analysis of economic policies with real-world impact.
+                </p>
+              </div>
+            </li>
+
+            <li class="service-item">
+              <div class="service-icon-box">
+                <img src="https://cdn-icons-png.flaticon.com/128/2920/2920277.png" alt="camera icon" width="40">
+              </div>
+              <div class="service-content-box">
+                <h4 class="h4 service-item-title">Market Research</h4>
+                <p class="service-item-text">
+                  I conduct high-quality market and economic research across sectors at a professional level.
+                </p>
+              </div>
+            </li>
+          </ul>
+        </section>
+
+        <!-- Testimonials -->
+        <section class="testimonials">
+          <h3 class="h3 testimonials-title">Testimonials</h3>
+
+          <ul class="testimonials-list has-scrollbar">
+            <li class="testimonials-item">
+              <div class="content-card">
+                <figure class="testimonials-avatar-box">
+                  <img src="https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?w=60&h=60&fit=crop&crop=face" alt="Daniel Lewis" width="60">
+                </figure>
+                <h4 class="h4 testimonials-item-title">Daniel Lewis</h4>
+                <div class="testimonials-text">
+                  <p>
+                    Neerja was hired to create economic analysis for our project. We were very pleased with the work done. She has a lot of experience and is very concerned about the needs of client. Her attention to detail and professional approach made our collaboration seamless.
+                  </p>
+                </div>
+              </div>
+            </li>
+
+            <li class="testimonials-item">
+              <div class="content-card">
+                <figure class="testimonials-avatar-box">
+                  <img src="https://images.unsplash.com/photo-1494790108755-2616b612b1e7?w=60&h=60&fit=crop&crop=face" alt="Jessica Miller" width="60">
+                </figure>
+                <h4 class="h4 testimonials-item-title">Jessica Miller</h4>
+                <div class="testimonials-text">
+                  <p>
+                    Neerja delivered exceptional policy research that exceeded our expectations. Her analytical skills and ability to present complex data in an understandable format made her an invaluable team member.
+                  </p>
+                </div>
+              </div>
+            </li>
+
+            <li class="testimonials-item">
+              <div class="content-card">
+                <figure class="testimonials-avatar-box">
+                  <img src="https://images.unsplash.com/photo-1438761681033-6461ffad8d80?w=60&h=60&fit=crop&crop=face" alt="Emily Evans" width="60">
+                </figure>
+                <h4 class="h4 testimonials-item-title">Emily Evans</h4>
+                <div class="testimonials-text">
+                  <p>
+                    Working with Neerja on market research was a great experience. Her thorough approach and insightful analysis helped us make informed business decisions. Highly recommended for any research project.
+                  </p>
+                </div>
+              </div>
+            </li>
+          </ul>
+        </section>
+
+        <!-- Clients -->
+        <section class="clients">
+          <h3 class="h3 clients-title">Clients</h3>
+
+          <ul class="clients-list has-scrollbar">
+            <li class="clients-item">
+              <a href="#">
+                <img src="https://via.placeholder.com/100x60/2563eb/ffffff?text=Client+1" alt="client logo">
+              </a>
+            </li>
+            <li class="clients-item">
+              <a href="#">
+                <img src="https://via.placeholder.com/100x60/2563eb/ffffff?text=Client+2" alt="client logo">
+              </a>
+            </li>
+            <li class="clients-item">
+              <a href="#">
+                <img src="https://via.placeholder.com/100x60/2563eb/ffffff?text=Client+3" alt="client logo">
+              </a>
+            </li>
+            <li class="clients-item">
+              <a href="#">
+                <img src="https://via.placeholder.com/100x60/2563eb/ffffff?text=Client+4" alt="client logo">
+              </a>
+            </li>
+          </ul>
+        </section>
+      </article>
+
+      <!-- Resume Section -->
+      <article class="resume" data-page="resume">
+        <header>
+          <h2 class="h2 article-title">Resume</h2>
+        </header>
+
+        <section class="timeline">
+          <div class="title-wrapper">
+            <div class="icon-box">
+              <ion-icon name="book-outline"></ion-icon>
+            </div>
+            <h3 class="h3">Education</h3>
+          </div>
+
+          <ol class="timeline-list">
+            <li class="timeline-item">
+              <h4 class="h4 timeline-item-title">University of Rajasthan</h4>
+              <span>2018 — 2022</span>
+              <p class="timeline-text">
+                Bachelor's degree with focus on Economics and Policy Studies. Developed strong analytical and research skills through comprehensive coursework and practical projects.
+              </p>
+            </li>
+
+            <li class="timeline-item">
+              <h4 class="h4 timeline-item-title">Advanced Policy Research Certificate</h4>
+              <span>2021 — 2022</span>
+              <p class="timeline-text">
+                Specialized certification in policy analysis and development, focusing on environmental and economic policy frameworks.
+              </p>
+            </li>
+
+            <li class="timeline-item">
+              <h4 class="h4 timeline-item-title">High School Diploma</h4>
+              <span>2016 — 2018</span>
+              <p class="timeline-text">
+                Completed with distinction, showing early interest in social sciences and public speaking activities.
+              </p>
+            </li>
+          </ol>
+        </section>
+
+        <section class="timeline">
+          <div class="title-wrapper">
+            <div class="icon-box">
+              <ion-icon name="book-outline"></ion-icon>
+            </div>
+            <h3 class="h3">Experience</h3>
+          </div>
+
+          <ol class="timeline-list">
+            <li class="timeline-item">
+              <h4 class="h4 timeline-item-title">Policy Research Analyst</h4>
+              <span>2022 — Present</span>
+              <p class="timeline-text">
+                Leading research initiatives on environmental sustainability and climate action policies. Collaborating with think tanks and government agencies to develop data-driven policy recommendations.
+              </p>
+            </li>
+
+            <li class="timeline-item">
+              <h4 class="h4 timeline-item-title">Research Intern - NITI Aayog</h4>
+              <span>2021 — 2022</span>
+              <p class="timeline-text">
+                Contributed to macroeconomic research projects, analyzing policy impacts and preparing comprehensive reports for senior officials.
+              </p>
+            </li>
+
+            <li class="timeline-item">
+              <h4 class="h4 timeline-item-title">Curriculum Development Volunteer</h4>
+              <span>2020 — 2021</span>
+              <p class="timeline-text">
+                Designed educational content for primary and secondary students, focusing on creating engaging learning materials and assessment frameworks.
+              </p>
+            </li>
+          </ol>
+        </section>
+
+        <section class="skill">
+          <h3 class="h3 skills-title">My skills</h3>
+
+          <ul class="skills-list content-card">
+            <li class="skills-item">
+              <div class="title-wrapper">
+                <h5 class="h5">Policy Analysis</h5>
+                <data value="90">90%</data>
+              </div>
+              <div class="skill-progress-bg">
+                <div class="skill-progress-fill" style="width: 90%;"></div>
+              </div>
+            </li>
+
+            <li class="skills-item">
+              <div class="title-wrapper">
+                <h5 class="h5">Economic Research</h5>
+                <data value="85">85%</data>
+              </div>
+              <div class="skill-progress-bg">
+                <div class="skill-progress-fill" style="width: 85%;"></div>
+              </div>
+            </li>
+
+            <li class="skills-item">
+              <div class="title-wrapper">
+                <h5 class="h5">Data Analysis</h5>
+                <data value="80">80%</data>
+              </div>
+              <div class="skill-progress-bg">
+                <div class="skill-progress-fill" style="width: 80%;"></div>
+              </div>
+            </li>
+
+            <li class="skills-item">
+              <div class="title-wrapper">
+                <h5 class="h5">Public Speaking</h5>
+                <data value="75">75%</data>
+              </div>
+              <div class="skill-progress-bg">
+                <div class="skill-progress-fill" style="width: 75%;"></div>
+              </div>
+            </li>
+          </ul>
+        </section>
+      </article>
+
+      <!-- Portfolio Section -->
+      <article class="portfolio" data-page="portfolio">
+        <header>
+          <h2 class="h2 article-title">Portfolio</h2>
+        </header>
+
+        <section class="projects">
+          <ul class="filter-list">
+            <li class="filter-item">
+              <button class="active" data-filter-btn>All</button>
+            </li>
+            <li class="filter-item">
+              <button data-filter-btn>Research</button>
+            </li>
+            <li class="filter-item">
+              <button data-filter-btn>Analysis</button>
+            </li>
+            <li class="filter-item">
+              <button data-filter-btn>Policy</button>
+            </li>
+          </ul>
+
+          <div class="filter-select-box">
+            <button class="filter-select" data-select>
+              <div class="select-value" data-select-value>Select category</div>
+              <div class="select-icon">
+                <ion-icon name="chevron-down"></ion-icon>
+              </div>
+            </button>
+          </div>
+
+          <ul class="project-list">
+            <li class="project-item active" data-filter-item data-category="research">
+              <a href="#">
+                <figure class="project-img">
+                  <img src="https://images.unsplash.com/photo-1551288049-bebda4e38f71?w=400&h=200&fit=crop" alt="Economic Research" loading="lazy">
+                </figure>
+                <h3 class="project-title">Economic Impact Study</h3>
+                <p class="project-category">Research</p>
+              </a>
+            </li>
+
+            <li class="project-item active" data-filter-item data-category="analysis">
+              <a href="#">
+                <figure class="project-img">
+                  <img src="https://images.unsplash.com/photo-1460925895917-afdab827c52f?w=400&h=200&fit=crop" alt="Market Analysis" loading="lazy">
+                </figure>
+                <h3 class="project-title">Market Analysis Report</h3>
+                <p class="project-category">Analysis</p>
+              </a>
+            </li>
+
+            <li class="project-item active" data-filter-item data-category="policy">
+              <a href="#">
+                <figure class="project-img">
+                  <img src="https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?w=400&h=200&fit=crop" alt="Policy Framework" loading="lazy">
+                </figure>
+                <h3 class="project-title">Climate Policy Framework</h3>
+                <p class="project-category">Policy</p>
+              </a>
+            </li>
+
+            <li class="project-item active" data-filter-item data-category="research">
+              <a href="#">
+                <figure class="project-img">
+                  <img src="https://images.unsplash.com/photo-1454165804606-c3d57bc86b40?w=400&h=200&fit=crop" alt="Sustainability Study" loading="lazy">
+                </figure>
+                <h3 class="project-title">Sustainability Research</h3>
+                <p class="project-category">Research</p>
+              </a>
+            </li>
+
+            <li class="project-item active" data-filter-item data-category="analysis">
+              <a href="#">
+                <figure class="project-img">
+                  <img src="https://images.unsplash.com/photo-1551288049-bebda4e38f71?w=400&h=200&fit=crop" alt="Data Visualization" loading="lazy">
+                </figure>
+                <h3 class="project-title">Economic Data Visualization</h3>
+                <p class="project-category">Analysis</p>
+              </a>
+            </li>
+
+            <li class="project-item active" data-filter-item data-category="policy">
+              <a href="#">
+                <figure class="project-img">
+                  <img src="https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?w=400&h=200&fit=crop" alt="Education Policy" loading="lazy">
+                </figure>
+                <h3 class="project-title">Education Policy Review</h3>
+                <p class="project-category">Policy</p>
+              </a>
+            </li>
+          </ul>
+        </section>
+      </article>
+
+      <!-- Blog Section -->
+      <article class="blog" data-page="blog">
+        <header>
+          <h2 class="h2 article-title">Blog</h2>
+        </header>
+
+        <section class="blog-posts">
+          <ul class="blog-posts-list">
+            <li class="blog-post-item">
+              <a href="#">
+                <figure class="blog-banner-box">
+                  <img src="https://images.unsplash.com/photo-1454165804606-c3d57bc86b40?w=400&h=200&fit=crop" alt="Climate Policy" loading="lazy">
+                </figure>
+                <div class="blog-content">
+                  <div class="blog-meta">
+                    <p class="blog-category">Policy</p>
+                    <span class="dot"></span>
+                    <time datetime="2024-02-23">Feb 23, 2024</time>
+                  </div>
+                  <h3 class="h3 blog-item-title">Climate Policy in 2024</h3>
+                  <p class="blog-text">
+                    Exploring the latest developments in climate policy and their economic implications.
+                  </p>
+                </div>
+              </a>
+            </li>
+
+            <li class="blog-post-item">
+              <a href="#">
+                <figure class="blog-banner-box">
+                  <img src="https://images.unsplash.com/photo-1551288049-bebda4e38f71?w=400&h=200&fit=crop" alt="Economic Research" loading="lazy">
+                </figure>
+                <div class="blog-content">
+                  <div class="blog-meta">
+                    <p class="blog-category">Research</p>
+                    <span class="dot"></span>
+                    <time datetime="2024-02-20">Feb 20, 2024</time>
+                  </div>
+                  <h3 class="h3 blog-item-title">Economic Research Methods</h3>
+                  <p class="blog-text">
+                    Best practices for conducting comprehensive economic research in the modern era.
+                  </p>
+                </div>
+              </a>
+            </li>
+
+            <li class="blog-post-item">
+              <a href="#">
+                <figure class="blog-banner-box">
+                  <img src="https://images.unsplash.com/photo-1460925895917-afdab827c52f?w=400&h=200&fit=crop" alt="Data Analysis" loading="lazy">
+                </figure>
+                <div class="blog-content">
+                  <div class="blog-meta">
+                    <p class="blog-category">Analysis</p>
+                    <span class="dot"></span>
+                    <time datetime="2024-02-18">Feb 18, 2024</time>
+                  </div>
+                  <h3 class="h3 blog-item-title">Data-Driven Decision Making</h3>
+                  <p class="blog-text">
+                    How to leverage data analysis for better policy and business decisions.
+                  </p>
+                </div>
+              </a>
+            </li>
+
+            <li class="blog-post-item">
+              <a href="#">
+                <figure class="blog-banner-box">
+                  <img src="https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?w=400&h=200&fit=crop" alt="Sustainability" loading="lazy">
+                </figure>
+                <div class="blog-content">
+                  <div class="blog-meta">
+                    <p class="blog-category">Sustainability</p>
+                    <span class="dot"></span>
+                    <time datetime="2024-02-15">Feb 15, 2024</time>
+                  </div>
+                  <h3 class="h3 blog-item-title">Sustainable Development Goals</h3>
+                  <p class="blog-text">
+                    Progress toward achieving sustainable development in emerging economies.
+                  </p>
+                </div>
+              </a>
+            </li>
+          </ul>
+        </section>
+      </article>
+
+      <!-- Contact Section -->
+      <article class="contact" data-page="contact">
+        <header>
+          <h2 class="h2 article-title">Contact</h2>
+        </header>
+
+        <section class="mapbox" data-mapbox>
+          <figure>
+            <iframe
+              src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d199666.5651251294!2d-121.58334177520186!3d38.56165006739519!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x809ac672b28397f9%3A0x921f6aaa74197fdb!2sSacramento%2C%20CA%2C%20USA!5e0!3m2!1sen!2sbd!4v1647608789441!5m2!1sen!2sbd"
+              width="400" height="300" loading="lazy"></iframe>
+          </figure>
+        </section>
+
+        <section class="contact-form">
+          <h3 class="h3 form-title">Contact Form</h3>
+
+          <form action="#" class="form" data-form>
+            <div class="input-wrapper">
+              <input type="text" name="fullname" class="form-input" placeholder="Full name" required data-form-input>
+              <input type="email" name="email" class="form-input" placeholder="Email address" required data-form-input>
+            </div>
+
+            <textarea name="message" class="form-input" placeholder="Your Message" required data-form-input></textarea>
+
+            <button class="form-btn" type="submit" data-form-btn>
+              <ion-icon name="paper-plane"></ion-icon>
+              <span>Send Message</span>
+            </button>
+          </form>
+        </section>
+      </article>
+    </div>
+  </main>
+
+  <script>
+    'use strict';
+
+    // Element toggle function
+    const elementToggleFunc = function (elem) { elem.classList.toggle("active"); }
+
+    // Sidebar variables
+    const sidebar = document.querySelector("[data-sidebar]");
+    const sidebarBtn = document.querySelector("[data-sidebar-btn]");
+
+    // Sidebar toggle functionality for mobile
+    sidebarBtn.addEventListener("click", function () { elementToggleFunc(sidebar); });
+
+    // Page navigation variables
+    const navigationLinks = document.querySelectorAll("[data-nav-link]");
+    const pages = document.querySelectorAll("[data-page]");
+
+    // Add event to all nav link
+    for (let i = 0; i < navigationLinks.length; i++) {
+      navigationLinks[i].addEventListener("click", function () {
+
+        for (let i = 0; i < pages.length; i++) {
+          if (this.innerHTML.toLowerCase() === pages[i].dataset.page) {
+            pages[i].classList.add("active");
+            navigationLinks[i].classList.add("active");
+            window.scrollTo(0, 0);
+          } else {
+            pages[i].classList.remove("active");
+            navigationLinks[i].classList.remove("active");
+          }
+        }
+
+      });
+    }
+
+    // Portfolio filter functionality
+    const filterBtns = document.querySelectorAll("[data-filter-btn]");
+    const filterItems = document.querySelectorAll("[data-filter-item]");
+
+    for (let i = 0; i < filterBtns.length; i++) {
+      filterBtns[i].addEventListener("click", function () {
+        
+        for (let j = 0; j < filterBtns.length; j++) {
+          filterBtns[j].classList.remove("active");
+        }
+        
+        this.classList.add("active");
+        
+        const filterValue = this.innerHTML.toLowerCase();
+        
+        for (let k = 0; k < filterItems.length; k++) {
+          if (filterValue === "all" || filterValue === filterItems[k].dataset.category) {
+            filterItems[k].classList.add("active");
+          } else {
+            filterItems[k].classList.remove("active");
+          }
+        }
+      });
+    }
+
+    // Contact form functionality
+    const form = document.querySelector("[data-form]");
+    const formInputs = document.querySelectorAll("[data-form-input]");
+    const formBtn = document.querySelector("[data-form-btn]");
+
+    // Add event to all form input field
+    for (let i = 0; i < formInputs.length; i++) {
+      formInputs[i].addEventListener("input", function () {
+
+        // Check form validation
+        if (form.checkValidity()) {
+          formBtn.removeAttribute("disabled");
+        } else {
+          formBtn.setAttribute("disabled", "");
+        }
+
+      });
+    }
+
+    // Filter select for mobile
+    const filterSelect = document.querySelector("[data-select]");
+    const selectItems = document.querySelectorAll("[data-select-item]");
+    const selectValue = document.querySelector("[data-select-value]");
+
+    if (filterSelect) {
+      filterSelect.addEventListener("click", function () {
+        elementToggleFunc(this);
+      });
+
+      // Add event to all select items
+      for (let i = 0; i < selectItems.length; i++) {
+        selectItems[i].addEventListener("click", function () {
+          let selectedValue = this.innerText.toLowerCase();
+          selectValue.innerText = this.innerText;
+          elementToggleFunc(filterSelect);
+          
+          // Filter portfolio items
+          for (let j = 0; j < filterItems.length; j++) {
+            if (selectedValue === "all" || selectedValue === filterItems[j].dataset.category) {
+              filterItems[j].classList.add("active");
+            } else {
+              filterItems[j].classList.remove("active");
+            }
+          }
+        });
+      }
+    }
+  </script>
+</body>
+</html>
